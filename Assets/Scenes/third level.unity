@@ -19171,6 +19171,10 @@ PrefabInstance:
       propertyPath: m_ChunkCullingBounds.y
       value: 0.012000024
       objectReference: {fileID: 0}
+    - target: {fileID: 859386198778103772, guid: c2209db2131867144ab741743dbe78f3, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2209db2131867144ab741743dbe78f3, type: 3}
 --- !u!1001 &6254753700698721035
