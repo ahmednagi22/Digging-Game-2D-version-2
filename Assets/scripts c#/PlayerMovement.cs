@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     void Start()
     {
         
         
     }
 
-    // Update is called once per frame
-    //bool pressButton = false;
+    
     void Update()
     {     
         SpriteRenderer mySprite = GetComponent<SpriteRenderer>();
@@ -35,16 +34,27 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.Translate(new Vector3(0,-0.02f,0));
 
-        }/* IEnumerator TimeDelay()
-             {
-                 
-                 yield return new WaitForSeconds(100);
-                 print("TimeDelay");
-             }*/
-        
-           // StartCoroutine(TimeDelay());
+        }
        
     }
-   
-   
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground")){
+            
+            Debug.Log(collision.name);
+            //Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground")){
+           // Destroy(collision.gameObject);
+            //print("ahmad");
+        }
+          
+
+    }
+
 }
