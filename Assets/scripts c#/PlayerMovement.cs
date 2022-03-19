@@ -51,7 +51,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground")){
            // Destroy(collision.gameObject);
-            print("collision");}
+            //print("ahmad");
+        }
           
 
     }

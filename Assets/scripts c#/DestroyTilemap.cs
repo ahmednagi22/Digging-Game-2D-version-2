@@ -3,34 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 public class DestroyTilemap : MonoBehaviour
-{    Tilemap tilemap;
+{
+    public Tilemap tilemap;
 
     // Start is called before the first frame update
     void Start()
     {
-        tilemap=GetC
+        tilemap = GetComponent<Tilemap>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-     private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
         {
-            
-            tilemap.SetTile(new Vector3Int(-7,3,0), null);
-                Destroy(collision.gameObject);
-                
-              
-    
-        }
-        private void OnCollisionEnter2D(Collision2D collision)
+            Vector3 hitPosition = Vector3.zero;
+            foreach (ContactPoint2D hit in collision.contacts)
             {
-                if (collision.gameObject.CompareTag("Ground")){
-                   // Destroy(collision.gameObject);
-                    print("collision");}
-                  
-        
+                hitPosition.x = hit.point.x - 0.0001f * hit.normal.x;
+                hitPosition.y = hit.point.y - 0.0001f * hit.normal.y;
+                tilemap.SetTile(tilemap.WorldToCell(hitPosition), null);
             }
+
+
+        }
+    }
 }
