@@ -43,14 +43,14 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground")){
             
             Debug.Log(collision.name);
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground")){
-            Destroy(collision.gameObject);
+           // Destroy(collision.gameObject);
             print("collision");}
           
 
