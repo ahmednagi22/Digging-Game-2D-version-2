@@ -9,6 +9,11 @@ TagManager:
   - Collectable
   - Chest
   - Stone
+  - stone
+  - Fire
+  - RED wall
+  - Yellow Wall
+  - Gems
   layers:
   - Default
   - TransparentFX

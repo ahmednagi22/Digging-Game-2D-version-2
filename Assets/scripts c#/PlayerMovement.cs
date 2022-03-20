@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private int Score = 0;
     
     void Start()
     {
@@ -38,9 +39,9 @@ public class PlayerMovement : MonoBehaviour
        
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+   private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground")){
+        if (collision.gameObject.CompareTag("gim")){
             
             Debug.Log(collision.name);
             //Destroy(collision.gameObject);
@@ -49,11 +50,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground")){
-           // Destroy(collision.gameObject);
-            //print("ahmad");
+        if (collision.gameObject.CompareTag("Gems")){
+            Destroy(collision.gameObject);
+            Score += 100;
         }
-          
+          print(Score);
 
     }
 
