@@ -3324,7 +3324,7 @@ SpriteRenderer:
   m_Size: {x: 40.96, y: 40.96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &448764583
@@ -24758,6 +24758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1466f4280fc1e04fb22fa0e81b8ed36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
 --- !u!1001 &1561690451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29314,9 +29315,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2120376209538775316, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
+      propertyPath: m_Mass
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120376209538775316, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5195676135331911722, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
       propertyPath: m_Name
       value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5195676135331911726, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
+      propertyPath: m_Size.x
+      value: 0.4667797
+      objectReference: {fileID: 0}
+    - target: {fileID: 5195676135331911726, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5012064
+      objectReference: {fileID: 0}
+    - target: {fileID: 5195676135331911726, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.044142723
+      objectReference: {fileID: 0}
+    - target: {fileID: 5195676135331911726, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.4857478
       objectReference: {fileID: 0}
     - target: {fileID: 5195676135331911727, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
       propertyPath: m_RootOrder

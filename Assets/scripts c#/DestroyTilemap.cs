@@ -17,7 +17,7 @@ public class DestroyTilemap : MonoBehaviour
     {
 
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -28,8 +28,7 @@ public class DestroyTilemap : MonoBehaviour
                 hitPosition.y = hit.point.y - 0.0001f * hit.normal.y;
                 tilemap.SetTile(tilemap.WorldToCell(hitPosition), null);
             }
-
-
+            
         }
     }
 }
