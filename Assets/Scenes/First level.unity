@@ -3324,7 +3324,7 @@ SpriteRenderer:
   m_Size: {x: 40.96, y: 40.96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &448764583
@@ -26705,7 +26705,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
+  m_Constraints: 7
 --- !u!61 &1825882453
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29333,19 +29333,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5195676135331911726, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
       propertyPath: m_Size.x
-      value: 0.4667797
+      value: 0.18612862
       objectReference: {fileID: 0}
     - target: {fileID: 5195676135331911726, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
       propertyPath: m_Size.y
-      value: 0.5012064
+      value: 0.53321123
       objectReference: {fileID: 0}
     - target: {fileID: 5195676135331911726, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
       propertyPath: m_Offset.x
-      value: 0.044142723
+      value: 0.056399345
       objectReference: {fileID: 0}
     - target: {fileID: 5195676135331911726, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
       propertyPath: m_Offset.y
-      value: -0.4857478
+      value: -0.46445775
       objectReference: {fileID: 0}
     - target: {fileID: 5195676135331911727, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
       propertyPath: m_RootOrder
