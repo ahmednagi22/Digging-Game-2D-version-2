@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7468820340530539165}
   - component: {fileID: 6775746353513428429}
   - component: {fileID: 1050986547216395402}
-  - component: {fileID: 8203372357357653888}
+  - component: {fileID: 2777500593907281432}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Fire
@@ -139,8 +139,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 1
---- !u!61 &8203372357357653888
-BoxCollider2D:
+--- !u!68 &2777500593907281432
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -152,16 +152,21 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.00055766106}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.91, y: 0.4}
-    newSize: {x: 0.91, y: 0.4}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.91, y: 0.4577697}
+  m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.44690928, y: 0.0056287944}
+  - {x: 0.239757, y: 0.17195529}
+  - {x: -0.11951756, y: 0.23659787}
+  - {x: -0.3642675, y: 0.14456588}
+  - {x: -0.42704204, y: 0.06618925}
+  - {x: -0.41963458, y: -0.06976053}
+  - {x: -0.26179856, y: -0.19294143}
+  - {x: -0.041697007, y: -0.22318591}
+  - {x: 0.26437885, y: -0.11390651}
+  - {x: 0.32279944, y: -0.05203521}
+  - {x: 0.45500097, y: -0.0000009536743}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

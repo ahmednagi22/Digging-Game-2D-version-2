@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 public class DestroyTilemap : MonoBehaviour
 {
-    public Tilemap tilemap;
+    private Tilemap tilemap;
 
     // Start is called before the first frame update
     void Start()

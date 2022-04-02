@@ -5,8 +5,9 @@ using UnityEngine;
 public class enemyMove : MonoBehaviour
 {
     public int dir = 1;
-
     private SpriteRenderer mySprite;
+
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class enemyMove : MonoBehaviour
     void Update()
     {
         SpriteRenderer mySprite = GetComponent<SpriteRenderer>();
-        transform.Translate(new Vector3(dir*0.025f,0,0));
+        transform.Translate(new Vector3(dir*0.02f,0,0));
         if(dir==-1){
             mySprite.flipX = true;
         }

@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,16 +13,22 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private int RATIO_OF_SCORE_TO_HEALTH = 7;
     private int MaximumHealth = 3;
+    public TextMeshProUGUI healthText;
+    public TextMeshProUGUI scoreText;
+    private Transform holder;
     void Start()
     {
         anim = GetComponent<Animator>();
         anim.SetBool("walking",false);
-
+        healthText = holder.Find("Health").GetComponent<TextMeshProUGUI>(); 
+        scoreText = holder.Find("Score").GetComponent<TextMeshProUGUI>();
     }
 
 
     void Update()
     {
+        healthText.text = "Health: "+health+"/3";
+        scoreText.text = "Score:"+Score+"";
         if (Score >= RATIO_OF_SCORE_TO_HEALTH && health < MaximumHealth)
         {
             for (int i = 0; i < Score/RATIO_OF_SCORE_TO_HEALTH; i++)
@@ -38,24 +46,24 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 anim.SetBool("walking",true);
-                transform.Translate(new Vector3(-0.08f,0,0));
+                transform.Translate(new Vector3(-0.02f,0,0));
                 mySprite.flipX = true;
             }
             else if (Input.GetKey(KeyCode.RightArrow))
             {
                 anim.SetBool("walking",true);
-                transform.Translate(new Vector3(0.08f,0,0));
+                transform.Translate(new Vector3(0.02f,0,0));
                 mySprite.flipX = false;
             }
             else if (Input.GetKey(KeyCode.UpArrow))
             {
                 anim.SetBool("walking",true);
-                transform.Translate(new Vector3(0,0.08f,0));
+                transform.Translate(new Vector3(0,0.02f,0));
             }
             else if (Input.GetKey(KeyCode.DownArrow))
             {
                 anim.SetBool("walking",true);
-                transform.Translate(new Vector3(0,-0.08f,0));
+                transform.Translate(new Vector3(0,-0.02f,0));
             }
         }
     }
@@ -78,13 +86,13 @@ public class PlayerMovement : MonoBehaviour
             Score += 1;
             print("Score = " + Score);
         }
-        if (collision.gameObject.CompareTag("stone")||collision.gameObject.CompareTag("enemy"))
+        if (collision.gameObject.CompareTag("stone"))
         {
             
             if(health==0){
                 if(!gameOver){
-                    //gameOver = true;//disabled temprorey for easy debuging
-                    //anim.SetTrigger("die");//disabled temprorey for easy debuging
+                    gameOver = true;//disabled temprorey for easy debuging
+                    anim.SetTrigger("die");//disabled temprorey for easy debuging
                     print("Game Over!");
                     return;
                 }
@@ -96,12 +104,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("Fire"))
+        if (collision.gameObject.CompareTag("Fire")||collision.gameObject.CompareTag("enemy"))
         {
             health = 0;
             if(!gameOver){
-                //gameOver = true;//disabled temprorey for easy debuging
-                //anim.SetTrigger("die");//disabled temprorey for easy debuging 
+                gameOver = true;//disabled temprorey for easy debuging
+                anim.SetTrigger("die");//disabled temprorey for easy debuging 
                 print("Game Over!");
             }
         }
