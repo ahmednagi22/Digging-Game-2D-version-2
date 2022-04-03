@@ -89,8 +89,10 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("stone"))
         {
             
-            if(health==0){
-                if(!gameOver){
+            if(health==1){
+                if(!gameOver)
+                {
+                    health -= 1;
                     gameOver = true;//disabled temprorey for easy debuging
                     anim.SetTrigger("die");//disabled temprorey for easy debuging
                     print("Game Over!");
