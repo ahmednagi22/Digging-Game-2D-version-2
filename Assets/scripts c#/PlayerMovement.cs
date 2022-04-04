@@ -8,11 +8,11 @@ using TMPro;
 public class PlayerMovement : MonoBehaviour
 {
     private int Score = 0;
-    private int health = 3;
+    private int health = 5;
     private Boolean gameOver = false;
     private Animator anim;
     private int RATIO_OF_SCORE_TO_HEALTH = 7;
-    private int MaximumHealth = 3;
+    private int MaximumHealth = 5;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI scoreText;
     void Start()
@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        healthText.text = "Health: "+health+"/3";
+        healthText.text = "Health: "+health+"/"+MaximumHealth+"";
         scoreText.text = "Score:"+Score+"";
         if (Score >= RATIO_OF_SCORE_TO_HEALTH && health < MaximumHealth)
         {
