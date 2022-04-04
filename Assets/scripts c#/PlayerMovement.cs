@@ -20,8 +20,6 @@ public class PlayerMovement : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         anim.SetBool("walking",false);
-        healthText = holder.Find("Health").GetComponent<TextMeshProUGUI>(); 
-        scoreText = holder.Find("Score").GetComponent<TextMeshProUGUI>();
     }
 
 
