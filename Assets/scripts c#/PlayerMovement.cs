@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     private int MaximumHealth = 3;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI scoreText;
-    private Transform holder;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -84,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
             Score += 1;
             print("Score = " + Score);
         }
-        if (collision.gameObject.CompareTag("stone"))
+        if (collision.gameObject.CompareTag("stone") && collision.gameObject.transform.position.y > transform.position.y)
         {
             
             if(health==1){

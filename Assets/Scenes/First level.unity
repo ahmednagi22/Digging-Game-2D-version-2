@@ -1998,6 +1998,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5453208360298961028, guid: 56cdbfdc24bb7d540927ef5a51c27746, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1969663931393056077, guid: 56cdbfdc24bb7d540927ef5a51c27746, type: 3}
       propertyPath: m_Name
       value: stone (21)
@@ -13096,6 +13100,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5453208360298961028, guid: 56cdbfdc24bb7d540927ef5a51c27746, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1969663931393056077, guid: 56cdbfdc24bb7d540927ef5a51c27746, type: 3}
       propertyPath: m_Name
       value: stone (2)
@@ -24769,7 +24777,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1466f4280fc1e04fb22fa0e81b8ed36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemap: {fileID: 0}
 --- !u!1001 &1561690451
 PrefabInstance:
   m_ObjectHideFlags: 0

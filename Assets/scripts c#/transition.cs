@@ -18,19 +18,19 @@ public class transition : MonoBehaviour
             {
               //  print("DownArrow key was pressed");
 
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(1);
             }
             else if(Input.GetKey(KeyCode.Alpha2))
             {
                // print("UpArrow key was pressed");
 
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(2);
             }
             else if(Input.GetKey(KeyCode.Alpha3))
             {
                // print("RightArrow key was pressed");
 
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(3);
             }
             
         }
