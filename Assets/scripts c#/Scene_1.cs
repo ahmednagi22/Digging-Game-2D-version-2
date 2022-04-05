@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class Scene_1 : MonoBehaviour
 {
     private int Score = 0;
-    private float speed = 0.08f;
+    private float speed = 0.02f;
     private int health = 5;
     private Boolean levelOver = false;
     private Animator anim;
@@ -179,8 +179,6 @@ public class Scene_1 : MonoBehaviour
     {
         Animator am = gameObject.GetComponent<Animator>();
         am.SetTrigger("getTheChest");
-        BoxCollider2D cl = gameObject.GetComponent<BoxCollider2D>();
-        cl.enabled = false;
         levelOver = true;//to prevent the player from collision more than one before destroying
         yield return new WaitForSeconds(seconds);
         Destroy(gameObject);
