@@ -22,4 +22,6 @@ public class fireMove : MonoBehaviour
     {
         this.dir *= -1;
     }
+    
+
 }

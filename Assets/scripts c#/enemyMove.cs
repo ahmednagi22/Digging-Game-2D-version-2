@@ -26,8 +26,31 @@ public class enemyMove : MonoBehaviour
             mySprite.flipX = false;
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+            if (collision.gameObject.CompareTag("stone") || collision.gameObject.CompareTag("Fire"))
+            {
+                Animator am = gameObject.GetComponent<Animator>();
+                am.SetTrigger("enemy_killed");
+                StartCoroutine(waitAndDestroy());
+            }
+            else
+            {
+                this.dir *= -1;
+            }
+    }
     private void OnCollisionStay2D(Collision2D collision)
     {
+        if (!(collision.gameObject.CompareTag("stone") || collision.gameObject.CompareTag("Fire")))
+        {
             this.dir *= -1;
+
+        }
+    }
+    
+    IEnumerator waitAndDestroy()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(this.gameObject);
     }
 }
