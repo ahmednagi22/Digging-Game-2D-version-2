@@ -25,6 +25,7 @@ public class Scene_2 : MonoBehaviour
     private int numberOfCollectedTreasureKey = 0;
     public GameObject imageOfTreasureKey;
     public TextMeshProUGUI numberOfCollectedTreasureKeyText;
+    private int gameOverIndex=4;
     void Start()
     {
         mySprite = GetComponent<SpriteRenderer>();
@@ -133,8 +134,9 @@ public class Scene_2 : MonoBehaviour
                 if(!levelOver)
                 {
                     health -= 1;
-                    //levelOver = true;//disabled temprorey for easy debuging
-                    //anim.SetTrigger("die");//disabled temprorey for easy debuging
+                    levelOver = true;//disabled temprorey for easy debuging
+                    anim.SetTrigger("die");//disabled temprorey for easy debuging
+                    StartCoroutine(WaitAndLoadScene(gameOverIndex));
                     print("Game Over!");
                     return;
                 }
@@ -150,8 +152,9 @@ public class Scene_2 : MonoBehaviour
         {
             health = 0;
             if(!levelOver){
-                //levelOver = true;//disabled temprorey for easy debuging
-                //anim.SetTrigger("die");//disabled temprorey for easy debuging 
+                levelOver = true;//disabled temprorey for easy debuging
+                anim.SetTrigger("die");//disabled temprorey for easy debuging 
+                StartCoroutine(WaitAndLoadScene(gameOverIndex));
                 print("Game Over!");
             }
         }
