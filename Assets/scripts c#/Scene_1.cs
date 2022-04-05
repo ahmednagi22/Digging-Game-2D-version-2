@@ -9,9 +9,9 @@ using UnityEngine.SceneManagement;
 public class Scene_1 : MonoBehaviour
 {
     private int Score = 0;
-    public float speed = 0.02f;
+    private float speed = 0.08f;
     private int health = 5;
-    private Boolean gameOver = false;
+    private Boolean levelOver = false;
     private Animator anim;
     private int RATIO_OF_SCORE_TO_HEALTH = 7;
     private int MaximumHealth = 5;
@@ -22,6 +22,9 @@ public class Scene_1 : MonoBehaviour
     public SpriteRenderer player_image;
     public Animator animOfExitDoor;
     private SpriteRenderer mySprite;
+    private int numberOfCollectedTreasureKey = 0;
+    public GameObject imageOfTreasureKey;
+    public TextMeshProUGUI numberOfCollectedTreasureKeyText;
     void Start()
     {
         mySprite = GetComponent<SpriteRenderer>();
@@ -36,6 +39,7 @@ public class Scene_1 : MonoBehaviour
     {
         healthText.text = "Health: "+health+"/"+MaximumHealth+"";
         scoreText.text = "Score:"+Score+"";
+        numberOfCollectedTreasureKeyText.text = ""+numberOfCollectedTreasureKey+"";
         if (Score >= RATIO_OF_SCORE_TO_HEALTH && health < MaximumHealth)
         {
             for (int i = 0; i < Score/RATIO_OF_SCORE_TO_HEALTH; i++)
@@ -48,7 +52,7 @@ public class Scene_1 : MonoBehaviour
         }
 
         anim.SetBool("walking",false);
-        if(!gameOver){
+        if(!levelOver){
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 anim.SetBool("walking",true);
@@ -98,25 +102,44 @@ public class Scene_1 : MonoBehaviour
             getDoorKey = true;
             imageOfDoorKey.SetActive(true);
         }
+        if (collision.gameObject.CompareTag("treasureKey"))
+        {
+            Destroy(collision.gameObject);
+            numberOfCollectedTreasureKey++;
+            imageOfTreasureKey.SetActive(true);
+        }
+        if (collision.gameObject.CompareTag("treasure"))
+        {
+            if(numberOfCollectedTreasureKey>0){
+                numberOfCollectedTreasureKey--;
+                if (numberOfCollectedTreasureKey == 0)
+                {
+                    imageOfTreasureKey.SetActive(false);
+                }
+                StartCoroutine(takeTheTreasureAndWait(2.5f,collision.gameObject));
+            }
+        }
         if (collision.gameObject.CompareTag("ExitDoor")&&getDoorKey)
         {
+            imageOfDoorKey.SetActive(false);
             animOfExitDoor.SetBool("getDoorKey",true);
-            SceneManager.LoadScene(2);
+            levelOver = true;
+            StartCoroutine(WaitAndLoadScene(2));
         }
         if (collision.gameObject.CompareTag("stone") && collision.gameObject.transform.position.y > transform.position.y)
         {
             
             if(health==1){
-                if(!gameOver)
+                if(!levelOver)
                 {
                     health -= 1;
-                    //gameOver = true;//disabled temprorey for easy debuging
+                    //levelOver = true;//disabled temprorey for easy debuging
                     //anim.SetTrigger("die");//disabled temprorey for easy debuging
                     print("Game Over!");
                     return;
                 }
             }
-            if(!gameOver){
+            if(!levelOver){
                 health -= 1;
                 anim.SetTrigger("hit");
                 print("Health = " +health);
@@ -126,8 +149,8 @@ public class Scene_1 : MonoBehaviour
         if (collision.gameObject.CompareTag("Fire")||collision.gameObject.CompareTag("enemy"))
         {
             health = 0;
-            if(!gameOver){
-                //gameOver = true;//disabled temprorey for easy debuging
+            if(!levelOver){
+                //levelOver = true;//disabled temprorey for easy debuging
                 //anim.SetTrigger("die");//disabled temprorey for easy debuging 
                 print("Game Over!");
             }
@@ -137,9 +160,28 @@ public class Scene_1 : MonoBehaviour
     IEnumerator BeginingAnimation()
     {
         player_image.enabled = false;
-        gameOver = true;//to prevent the player from moving untile the game begin
+        levelOver = true;//to prevent the player from moving untile the game begin
         yield return new WaitForSeconds(1.9f);
         player_image.enabled = true;
-        gameOver = false;//to prevent the player from moving untile the game begin
+        levelOver = false;//to prevent the player from moving untile the game begin
+    }
+    
+    IEnumerator WaitAndLoadScene(int scene)
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(scene);
+    }
+    
+    IEnumerator takeTheTreasureAndWait(float seconds,GameObject gameObject)
+    {
+        Animator am = gameObject.GetComponent<Animator>();
+        am.SetTrigger("getTheChest");
+        BoxCollider2D cl = gameObject.GetComponent<BoxCollider2D>();
+        cl.enabled = false;
+        levelOver = true;//to prevent the player from collision more than one before destroying
+        yield return new WaitForSeconds(seconds);
+        Destroy(gameObject);
+        levelOver = false;//to prevent the player from collision more than one before destroying
+        Score += 25;
     }
 }

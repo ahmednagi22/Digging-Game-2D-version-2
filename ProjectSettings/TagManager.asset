@@ -17,6 +17,8 @@ TagManager:
   - enemy
   - doorKey
   - ExitDoor
+  - treasureKey
+  - treasure
   layers:
   - Default
   - TransparentFX
