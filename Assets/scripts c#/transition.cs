@@ -32,12 +32,6 @@ public class transition : MonoBehaviour
 
                 SceneManager.LoadScene(3);
             }
-        else if(Input.GetKey(KeyCode.Escape))
-        {
-            // print("RightArrow key was pressed");
-
-            SceneManager.LoadScene(0);
-        }
             
         }
         
