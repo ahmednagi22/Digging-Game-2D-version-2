@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class Scene_3 : MonoBehaviour
 {
     private int Score = 0;
-    private float speed = 0.08f;
+    private float speed = 2.0f;
     private int health = 5;
     private Boolean levelOver = false;
     private Animator anim;
@@ -55,7 +55,8 @@ public class Scene_3 : MonoBehaviour
         }
 
         anim.SetBool("walking",false);
-        if(!levelOver){
+        if(!levelOver && ! PuaseMenu.GameIsPaused)
+        {
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 anim.SetBool("walking",true);
