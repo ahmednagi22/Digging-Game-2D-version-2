@@ -7,7 +7,6 @@ TagManager:
   - Wall
   - Ground
   - Collectable
-  - Chest
   - Stone
   - stone
   - Fire
