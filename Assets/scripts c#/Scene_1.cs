@@ -53,9 +53,9 @@ public class Scene_1 : MonoBehaviour
         }
 
         anim.SetBool("walking",false);
-        if(!levelOver){
+        if(!levelOver&&!PuaseMenu.GameIsPaused){
             if (Input.GetKey(KeyCode.LeftArrow))
-            {
+            { 
                 anim.SetBool("walking",true);
                 transform.Translate(new Vector3(-speed,0,0));
                 mySprite.flipX = true;

@@ -53,7 +53,7 @@ public class Scene_2 : MonoBehaviour
         }
 
         anim.SetBool("walking",false);
-        if(!levelOver){
+        if(!levelOver&&!PuaseMenu.GameIsPaused){
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 anim.SetBool("walking",true);
