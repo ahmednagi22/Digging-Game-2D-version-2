@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class Scene_1 : MonoBehaviour
 {
     private int Score = 0;
-    private float speed = 0.08f;
+    public float speed = 3f;
     private int health = 5;
     private Boolean levelOver = false;
     private Animator anim;
@@ -57,24 +57,24 @@ public class Scene_1 : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftArrow))
             { 
                 anim.SetBool("walking",true);
-                transform.Translate(new Vector3(-speed,0,0));
+                transform.Translate(new Vector3(-speed*Time.fixedDeltaTime,0,0));
                 mySprite.flipX = true;
             }
             else if (Input.GetKey(KeyCode.RightArrow))
             {
                 anim.SetBool("walking",true);
-                transform.Translate(new Vector3(speed,0,0));
+                transform.Translate(new Vector3(speed*Time.fixedDeltaTime,0,0));
                 mySprite.flipX = false;
             }
             else if (Input.GetKey(KeyCode.UpArrow))
             {
                 anim.SetBool("walking",true);
-                transform.Translate(new Vector3(0,speed,0));
+                transform.Translate(new Vector3(0,speed*Time.fixedDeltaTime,0));
             }
             else if (Input.GetKey(KeyCode.DownArrow))
             {
                 anim.SetBool("walking",true);
-                transform.Translate(new Vector3(0,-speed,0));
+                transform.Translate(new Vector3(0,-speed*Time.fixedDeltaTime,0));
             }
         }
     }

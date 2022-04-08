@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class Scene_3 : MonoBehaviour
 {
     private int Score = 0;
-    public float speed = 2.0f;
+    public float speed = 3f;
     private int health = 5;
     private Boolean levelOver = false;
     private Animator anim;
