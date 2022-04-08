@@ -59,24 +59,24 @@ public class Scene_3 : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 anim.SetBool("walking",true);
-                transform.Translate(new Vector3(-speed,0,0));
+                transform.Translate(new Vector3(-speed*Time.fixedDeltaTime,0,0));
                 mySprite.flipX = true;
             }
             else if (Input.GetKey(KeyCode.RightArrow))
             {
                 anim.SetBool("walking",true);
-                transform.Translate(new Vector3(speed,0,0));
+                transform.Translate(new Vector3(speed*Time.fixedDeltaTime,0,0));
                 mySprite.flipX = false;
             }
             else if (Input.GetKey(KeyCode.UpArrow))
             {
                 anim.SetBool("walking",true);
-                transform.Translate(new Vector3(0,speed,0));
+                transform.Translate(new Vector3(0,speed*Time.fixedDeltaTime,0));
             }
             else if (Input.GetKey(KeyCode.DownArrow))
             {
                 anim.SetBool("walking",true);
-                transform.Translate(new Vector3(0,-speed,0));
+                transform.Translate(new Vector3(0,-speed*Time.fixedDeltaTime,0));
             }
         }
     }
