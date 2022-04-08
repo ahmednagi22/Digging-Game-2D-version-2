@@ -36,7 +36,7 @@ public class PuaseMenu : MonoBehaviour
     }
     public void Menu()
     {
-        SceneManager.LoadScene("main menu");
+        SceneManager.LoadScene(0);
     }
     public void Quit()
     {

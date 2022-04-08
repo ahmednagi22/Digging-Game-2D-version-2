@@ -17,13 +17,17 @@ public class enemyMove : MonoBehaviour
     void Update()
     {
         SpriteRenderer mySprite = GetComponent<SpriteRenderer>();
-        transform.Translate(new Vector3(dir*0.02f,0,0));
-        if(dir==-1){
-            mySprite.flipX = true;
-        }
-        else if (dir == 1)
+        if (!PuaseMenu.GameIsPaused)
         {
-            mySprite.flipX = false;
+            transform.Translate(new Vector3(dir * 0.02f, 0, 0));
+            if (dir == -1)
+            {
+                mySprite.flipX = true;
+            }
+            else if (dir == 1)
+            {
+                mySprite.flipX = false;
+            }
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

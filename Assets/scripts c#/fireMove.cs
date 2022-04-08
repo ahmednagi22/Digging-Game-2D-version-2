@@ -16,7 +16,10 @@ public class fireMove : MonoBehaviour
     void Update()
     {
         SpriteRenderer mySprite = GetComponent<SpriteRenderer>();
-        transform.Translate(new Vector3(dir*0.02f,0,0));
+        if (!PuaseMenu.GameIsPaused)
+        {
+            transform.Translate(new Vector3(dir * 0.02f, 0, 0));
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
