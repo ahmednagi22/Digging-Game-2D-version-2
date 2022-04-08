@@ -8632,12 +8632,16 @@ PrefabInstance:
       value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 2120376209538775316, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120376209538775316, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
       propertyPath: m_GravityScale
       value: -0.0000001
       objectReference: {fileID: 0}
     - target: {fileID: 2120376209538775316, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
       propertyPath: m_CollisionDetection
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5195676135331911722, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
       propertyPath: m_Name
