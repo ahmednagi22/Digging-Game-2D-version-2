@@ -29,7 +29,7 @@ public class PuaseMenu : MonoBehaviour
         GameIsPaused = false;
     }
     void pause()
-    {
+    {  
         PauseMenuUI.SetActive(true);
         Time.timeScale=0f;
         GameIsPaused = true;
@@ -37,7 +37,9 @@ public class PuaseMenu : MonoBehaviour
     public void Menu()
     {
         Time.timeScale = 1f;
+        Resume();
         SceneManager.LoadScene(0);
+        
     }
     public void Quit()
     {
