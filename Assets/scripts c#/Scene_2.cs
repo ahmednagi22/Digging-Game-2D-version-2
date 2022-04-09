@@ -25,67 +25,70 @@ public class Scene_2 : MonoBehaviour
     private int numberOfCollectedTreasureKey = 0;
     public GameObject imageOfTreasureKey;
     public TextMeshProUGUI numberOfCollectedTreasureKeyText;
-    private int gameOverIndex=4;
+    private int gameOverIndex = 4;
+    private int WiningIndex = 5;
+
     void Start()
     {
         mySprite = GetComponent<SpriteRenderer>();
         StartCoroutine(BeginingAnimation());
         anim = GetComponent<Animator>();
-        anim.SetBool("walking",false);
+        anim.SetBool("walking", false);
         imageOfDoorKey.SetActive(false);
     }
 
 
     void Update()
     {
-        healthText.text = "Health: "+health+"/"+MaximumHealth+"";
-        scoreText.text = "Score:"+Score+"";
-        numberOfCollectedTreasureKeyText.text = ""+numberOfCollectedTreasureKey+"";
+        healthText.text = "Health: " + health + "/" + MaximumHealth + "";
+        scoreText.text = "Score:" + Score + "";
+        numberOfCollectedTreasureKeyText.text = "" + numberOfCollectedTreasureKey + "";
         if (Score >= RATIO_OF_SCORE_TO_HEALTH && health < MaximumHealth)
         {
-            for (int i = 0; i < Score/RATIO_OF_SCORE_TO_HEALTH; i++)
+            for (int i = 0; i < Score / RATIO_OF_SCORE_TO_HEALTH; i++)
             {
                 Score -= RATIO_OF_SCORE_TO_HEALTH;
                 health += 1;
             }
             print("Score = " + Score);
-            print("Health = " +health);
+            print("Health = " + health);
         }
 
-        anim.SetBool("walking",false);
-        if(!levelOver&&!PuaseMenu.GameIsPaused){
+        anim.SetBool("walking", false);
+        if (!levelOver && !PuaseMenu.GameIsPaused)
+        {
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                anim.SetBool("walking",true);
-                transform.Translate(new Vector3(-speed*Time.fixedDeltaTime,0,0));
+                anim.SetBool("walking", true);
+                transform.Translate(new Vector3(-speed * Time.fixedDeltaTime, 0, 0));
                 mySprite.flipX = true;
             }
             else if (Input.GetKey(KeyCode.RightArrow))
             {
-                anim.SetBool("walking",true);
-                transform.Translate(new Vector3(speed*Time.fixedDeltaTime,0,0));
+                anim.SetBool("walking", true);
+                transform.Translate(new Vector3(speed * Time.fixedDeltaTime, 0, 0));
                 mySprite.flipX = false;
             }
             else if (Input.GetKey(KeyCode.UpArrow))
             {
-                anim.SetBool("walking",true);
-                transform.Translate(new Vector3(0,speed*Time.fixedDeltaTime,0));
+                anim.SetBool("walking", true);
+                transform.Translate(new Vector3(0, speed * Time.fixedDeltaTime, 0));
             }
             else if (Input.GetKey(KeyCode.DownArrow))
             {
-                anim.SetBool("walking",true);
-                transform.Translate(new Vector3(0,-speed*Time.fixedDeltaTime,0));
+                anim.SetBool("walking", true);
+                transform.Translate(new Vector3(0, -speed * Time.fixedDeltaTime, 0));
             }
         }
     }
 
-   /*private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("gim")){
-            //Debug.Log(collision.name);
-            Destroy(collision.gameObject);
-        }
-    }*/
+    /*private void OnTriggerEnter2D(Collider2D collision)
+     {
+         if (collision.gameObject.CompareTag("gim")){
+             //Debug.Log(collision.name);
+             Destroy(collision.gameObject);
+         }
+     }*/
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -103,12 +106,12 @@ public class Scene_2 : MonoBehaviour
             getDoorKey = true;
             imageOfDoorKey.SetActive(true);
         }
-        if (collision.gameObject.CompareTag("ExitDoor")&&getDoorKey)
+        if (collision.gameObject.CompareTag("ExitDoor") && getDoorKey)
         {
             imageOfDoorKey.SetActive(false);
-            animOfExitDoor.SetBool("getDoorKey",true);
+            animOfExitDoor.SetBool("getDoorKey", true);
+            StartCoroutine(WaitAndLoadScene(WiningIndex));
             levelOver = true;
-            StartCoroutine(WaitAndLoadScene(3));
         }
         if (collision.gameObject.CompareTag("treasureKey"))
         {
@@ -118,20 +121,22 @@ public class Scene_2 : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("treasure"))
         {
-            if(numberOfCollectedTreasureKey>0){
+            if (numberOfCollectedTreasureKey > 0)
+            {
                 numberOfCollectedTreasureKey--;
                 if (numberOfCollectedTreasureKey == 0)
                 {
                     imageOfTreasureKey.SetActive(false);
                 }
-                StartCoroutine(takeTheTreasureAndWait(2.5f,collision.gameObject));
+                StartCoroutine(takeTheTreasureAndWait(2.5f, collision.gameObject));
             }
         }
         if (collision.gameObject.CompareTag("stone") && collision.gameObject.transform.position.y > transform.position.y)
         {
-            
-            if(health==1){
-                if(!levelOver)
+
+            if (health == 1)
+            {
+                if (!levelOver)
                 {
                     health -= 1;
                     levelOver = true;//disabled temprorey for easy debuging
@@ -141,25 +146,32 @@ public class Scene_2 : MonoBehaviour
                     return;
                 }
             }
-            if(!levelOver){
+            if (!levelOver)
+            {
                 health -= 1;
                 anim.SetTrigger("hit");
-                print("Health = " +health);
+                print("Health = " + health);
             }
         }
 
-        if (collision.gameObject.CompareTag("Fire")||collision.gameObject.CompareTag("enemy"))
+        if (collision.gameObject.CompareTag("Fire") || collision.gameObject.CompareTag("enemy"))
         {
             health = 0;
-            if(!levelOver){
+            if (!levelOver)
+            {
                 levelOver = true;//disabled temprorey for easy debuging
-                anim.SetTrigger("die");//disabled temprorey for easy debuging 
+                anim.SetTrigger("die");//disabled temprorey for easy debuging
                 StartCoroutine(WaitAndLoadScene(gameOverIndex));
                 print("Game Over!");
             }
         }
     }
 
+    IEnumerator WaitAndLoadScene(int scene)
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(scene);
+    }
     IEnumerator BeginingAnimation()
     {
         player_image.enabled = false;
@@ -168,12 +180,7 @@ public class Scene_2 : MonoBehaviour
         player_image.enabled = true;
         levelOver = false;//to prevent the player from moving untile the game begin
     }
-    IEnumerator WaitAndLoadScene(int scene)
-    {
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(scene);
-    }
-    IEnumerator takeTheTreasureAndWait(float seconds,GameObject gameObject)
+    IEnumerator takeTheTreasureAndWait(float seconds, GameObject gameObject)
     {
         Animator am = gameObject.GetComponent<Animator>();
         am.SetTrigger("getTheChest");
