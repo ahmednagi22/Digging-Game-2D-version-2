@@ -26,6 +26,7 @@ public class Scene_1 : MonoBehaviour
     public GameObject imageOfTreasureKey;
     public TextMeshProUGUI numberOfCollectedTreasureKeyText;
     private int gameOverIndex=4;
+   
     void Start()
     {
         mySprite = GetComponent<SpriteRenderer>();

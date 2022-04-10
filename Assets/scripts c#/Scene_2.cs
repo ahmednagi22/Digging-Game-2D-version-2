@@ -110,7 +110,8 @@ public class Scene_2 : MonoBehaviour
         {
             imageOfDoorKey.SetActive(false);
             animOfExitDoor.SetBool("getDoorKey", true);
-            StartCoroutine(WaitAndLoadScene(WiningIndex));
+            
+            StartCoroutine(WaitAndLoadScene(3));
             levelOver = true;
         }
         if (collision.gameObject.CompareTag("treasureKey"))

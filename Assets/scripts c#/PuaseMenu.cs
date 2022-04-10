@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class PuaseMenu : MonoBehaviour
 {
     static public bool GameIsPaused = false;
+    static public int Level;
     public GameObject PauseMenuUI;
     // Update is called once per frame
     void Update()
@@ -40,6 +41,10 @@ public class PuaseMenu : MonoBehaviour
         Resume();
         SceneManager.LoadScene(0);
         
+    }
+    public void Save()
+    {
+        Level = SceneManager.GetActiveScene().buildIndex;
     }
     public void Quit()
     {
