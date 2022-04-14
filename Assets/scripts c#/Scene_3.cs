@@ -27,11 +27,13 @@ public class Scene_3 : MonoBehaviour
     public TextMeshProUGUI numberOfCollectedTreasureKeyText;
     private int gameOverIndex=4;
     private int WiningIndex = 5;
-
+    public AudioSource collectedSound;
+    private AudioSource dieSound;
     void Start()
     {
         mySprite = GetComponent<SpriteRenderer>();
         StartCoroutine(BeginingAnimation());
+        dieSound = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         anim.SetBool("walking",false);
         imageOfDoorKey.SetActive(false);
@@ -93,7 +95,7 @@ public class Scene_3 : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Gems"))
-        {
+        {   collectedSound.Play();
             anim.SetTrigger("dig");
 
             Destroy(collision.gameObject);
@@ -139,6 +141,7 @@ public class Scene_3 : MonoBehaviour
                     health -= 1;
                     levelOver = true;//disabled temprorey for easy debuging
                     anim.SetTrigger("die");//disabled temprorey for easy debuging
+                    dieSound.Play();
                     StartCoroutine(WaitAndLoadScene(gameOverIndex));
                     print("Game Over!");
                     return;

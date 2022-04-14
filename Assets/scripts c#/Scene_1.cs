@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+
 public class Scene_1 : MonoBehaviour
 {
     private int Score = 0;
@@ -26,11 +27,14 @@ public class Scene_1 : MonoBehaviour
     public GameObject imageOfTreasureKey;
     public TextMeshProUGUI numberOfCollectedTreasureKeyText;
     private int gameOverIndex=4;
-   
+    
+     public AudioSource collectedSound;
+     private AudioSource dieSound;
     void Start()
-    {
+    {   
         mySprite = GetComponent<SpriteRenderer>();
         StartCoroutine(BeginingAnimation());
+        dieSound = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         anim.SetBool("walking",false);
         imageOfDoorKey.SetActive(false);
@@ -92,6 +96,7 @@ public class Scene_1 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Gems"))
         {
+            collectedSound.Play();
             anim.SetTrigger("dig");
 
             Destroy(collision.gameObject);
@@ -111,8 +116,9 @@ public class Scene_1 : MonoBehaviour
             imageOfTreasureKey.SetActive(true);
         }
         if (collision.gameObject.CompareTag("treasure"))
-        {
+        {  
             if(numberOfCollectedTreasureKey>0){
+                collectedSound.Play();
                 numberOfCollectedTreasureKey--;
                 if (numberOfCollectedTreasureKey == 0)
                 {
@@ -137,6 +143,7 @@ public class Scene_1 : MonoBehaviour
                     health -= 1;
                     levelOver = true;//disabled temprorey for easy debuging
                     anim.SetTrigger("die");//disabled temprorey for easy debuging
+                    dieSound.Play();
                     StartCoroutine(WaitAndLoadScene(gameOverIndex));
                     print("Game Over!");
                     return;
@@ -161,6 +168,7 @@ public class Scene_1 : MonoBehaviour
         }
     }
 
+    
     IEnumerator BeginingAnimation()
     {
         player_image.enabled = false;
