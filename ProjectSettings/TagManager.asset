@@ -7,7 +7,6 @@ TagManager:
   - Wall
   - Ground
   - Collectable
-  - Stone
   - stone
   - Fire
   - RED wall
