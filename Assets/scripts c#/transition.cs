@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class transition : MonoBehaviour
 {   
-    public GameObject optionMenu;
+    
     void Start()
     {
         

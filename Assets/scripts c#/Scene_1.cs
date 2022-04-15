@@ -31,7 +31,7 @@ public class Scene_1 : MonoBehaviour
      public AudioSource collectedSound;
      private AudioSource dieSound;
     void Start()
-    {   
+    {    
         mySprite = GetComponent<SpriteRenderer>();
         StartCoroutine(BeginingAnimation());
         dieSound = GetComponent<AudioSource>();
