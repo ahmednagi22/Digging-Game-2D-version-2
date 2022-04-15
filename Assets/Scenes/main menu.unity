@@ -481,7 +481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &285591359
 RectTransform:
   m_ObjectHideFlags: 0
@@ -517,8 +517,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6ef49f861387a4bbcf2f5a32908f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainActive: {fileID: 0}
-  optionMenu: {fileID: 0}
   volume: 0
 --- !u!1 &406362618
 GameObject:
@@ -536,7 +534,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &406362619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -571,8 +569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6ef49f861387a4bbcf2f5a32908f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainActive: {fileID: 406362618}
-  optionMenu: {fileID: 285591358}
   volume: 0
 --- !u!1 &423023137
 GameObject:
@@ -642,8 +638,8 @@ RectTransform:
   m_Father: {fileID: 780587189}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.03, y: 0}
+  m_AnchorMax: {x: 0.03, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1126,6 +1122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 907674019}
   - component: {fileID: 907674020}
+  - component: {fileID: 907674021}
   m_Layer: 5
   m_Name: Volume Slider
   m_TagString: Untagged
@@ -1142,7 +1139,7 @@ RectTransform:
   m_GameObject: {fileID: 907674018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children:
   - {fileID: 1969091378}
   - {fileID: 423023138}
@@ -1200,15 +1197,15 @@ MonoBehaviour:
   m_HandleRect: {fileID: 434143852}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 285591360}
-        m_TargetAssemblyTypeName: mainmenu, Assembly-CSharp
-        m_MethodName: changevolume
+      - m_Target: {fileID: 907674021}
+        m_TargetAssemblyTypeName: soundManger, Assembly-CSharp
+        m_MethodName: changeVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1218,6 +1215,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &907674021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907674018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321996716571d814e843b5c2e20ff032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 907674020}
 --- !u!1 &963754549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,7 +1261,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.03, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1612,10 +1622,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 406362620}
-        m_TargetAssemblyTypeName: mainmenu, Assembly-CSharp
-        m_MethodName: loadMain
-        m_Mode: 1
+      - m_Target: {fileID: 406362618}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 285591358}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1945,10 +1967,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 406362620}
-        m_TargetAssemblyTypeName: mainmenu, Assembly-CSharp
-        m_MethodName: loadOptionMenu
-        m_Mode: 1
+      - m_Target: {fileID: 285591358}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 406362618}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

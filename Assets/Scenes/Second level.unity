@@ -6182,7 +6182,7 @@ GameObject:
   - component: {fileID: 712422450}
   - component: {fileID: 712422449}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: collectedGimSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6195,7 +6195,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712422448}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2a4a276ccd7702046bd0792aae53771f, type: 3}
@@ -9644,7 +9644,7 @@ MonoBehaviour:
   animOfExitDoor: {fileID: 460372699}
   imageOfTreasureKey: {fileID: 1446304279}
   numberOfCollectedTreasureKeyText: {fileID: 1446304278}
-  collectedSound: {fileID: 0}
+  collectedSound: {fileID: 712422449}
 --- !u!212 &1661082642 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 5195676135331911720, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}

@@ -101,6 +101,7 @@ public class Scene_3 : MonoBehaviour
             Destroy(collision.gameObject);
             Score += 1;
             print("Score = " + Score);
+            
         }
         if (collision.gameObject.CompareTag("doorKey"))
         {
