@@ -371,6 +371,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13142145}
   m_CullTransparentMesh: 1
+--- !u!114 &13746936 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3996804115447891064, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+  m_PrefabInstance: {fileID: 1505182458289490426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &13851910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4273,6 +4284,7 @@ MonoBehaviour:
   animOfExitDoor: {fileID: 1825882451}
   imageOfTreasureKey: {fileID: 539163621}
   numberOfCollectedTreasureKeyText: {fileID: 435182675}
+  joystick: {fileID: 13746936}
   collectedSound: {fileID: 651401119}
 --- !u!212 &434085607 stripped
 SpriteRenderer:
@@ -33224,6 +33236,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1304193232045231659, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5eda94a9dcf71e445ad17e3c065d1460, type: 3}
+    - target: {fileID: 1304193232836921901, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4cbc879550e5e374a925e2e0a84d6f3c, type: 3}
+    - target: {fileID: 1304193232836921902, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1628
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304193232836921902, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 212
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505182458147919363, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1505182458221349418, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -33316,6 +33348,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: numberOfCollectedTreasureKey
       objectReference: {fileID: 0}
+    - target: {fileID: 3996804115163742320, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 010a6e5305fa7004f89c5d317b7b47d4, type: 3}
+    - target: {fileID: 3996804115163744143, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3996804115163744143, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3996804115163744143, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3996804115163744143, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3996804115447891061, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3996804115447891061, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3996804115447891061, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3996804115447891061, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1562
+      objectReference: {fileID: 0}
+    - target: {fileID: 3996804115447891061, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 299
+      objectReference: {fileID: 0}
+    - target: {fileID: 3996804115447891062, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 48c0d4d6bebaa934384b07aa1e2f8184, type: 3}
     - target: {fileID: 8334526885899018671, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
       propertyPath: m_IsActive
       value: 1

@@ -27,10 +27,11 @@ public class Scene_3 : MonoBehaviour
     public TextMeshProUGUI numberOfCollectedTreasureKeyText;
     private int gameOverIndex=4;
     private int WiningIndex = 5;
+    public Joystick joystick;
     public AudioSource collectedSound;
     private AudioSource dieSound;
     void Start()
-    {
+    {   joystick = FindObjectOfType<Joystick>();
         mySprite = GetComponent<SpriteRenderer>();
         StartCoroutine(BeginingAnimation());
         dieSound = GetComponent<AudioSource>();
@@ -41,7 +42,8 @@ public class Scene_3 : MonoBehaviour
 
 
     void Update()
-    {
+    {   double horizonalMove = Math.Round(joystick.Horizontal);
+        double verticalMove = Math.Round(joystick.Vertical);
         healthText.text = "Health: "+health+"/"+MaximumHealth+"";
         scoreText.text = "Score:"+Score+"";
         numberOfCollectedTreasureKeyText.text = ""+numberOfCollectedTreasureKey+"";
@@ -59,24 +61,24 @@ public class Scene_3 : MonoBehaviour
         anim.SetBool("walking",false);
         if(!levelOver && !PuaseMenu.GameIsPaused)
         {
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.LeftArrow)||horizonalMove==-1)
             {
                 anim.SetBool("walking",true);
                 transform.Translate(new Vector3(-speed*Time.fixedDeltaTime,0,0));
                 mySprite.flipX = true;
             }
-            else if (Input.GetKey(KeyCode.RightArrow))
+            else if (Input.GetKey(KeyCode.RightArrow)||horizonalMove==1)
             {
                 anim.SetBool("walking",true);
                 transform.Translate(new Vector3(speed*Time.fixedDeltaTime,0,0));
                 mySprite.flipX = false;
             }
-            else if (Input.GetKey(KeyCode.UpArrow))
+            else if (Input.GetKey(KeyCode.UpArrow)||verticalMove==1)
             {
                 anim.SetBool("walking",true);
                 transform.Translate(new Vector3(0,speed*Time.fixedDeltaTime,0));
             }
-            else if (Input.GetKey(KeyCode.DownArrow))
+            else if (Input.GetKey(KeyCode.DownArrow)||verticalMove==-1)
             {
                 anim.SetBool("walking",true);
                 transform.Translate(new Vector3(0,-speed*Time.fixedDeltaTime,0));

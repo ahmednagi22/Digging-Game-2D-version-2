@@ -182,10 +182,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 70
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 7
+    m_MinSize: 4
     m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -238,8 +238,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 43, y: -78}
-  m_SizeDelta: {x: 328.585, y: 110.9207}
+  m_AnchoredPosition: {x: 0, y: 19}
+  m_SizeDelta: {x: 115.6, y: 54.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &757574996
 MonoBehaviour:
@@ -472,10 +472,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 80
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 8
+    m_MinSize: 4
     m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -551,10 +551,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 70
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 7
+    m_MinSize: 4
     m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -673,8 +673,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 47, y: -254}
-  m_SizeDelta: {x: 328.585, y: 110.9207}
+  m_AnchoredPosition: {x: 0, y: -73}
+  m_SizeDelta: {x: 84.5, y: 57.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1070713632
 MonoBehaviour:
@@ -806,8 +806,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 53.2614, y: 126.3141}
-  m_SizeDelta: {x: 470.1964, y: 134.5226}
+  m_AnchoredPosition: {x: 0, y: 106}
+  m_SizeDelta: {x: 167.3, y: 56.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1083615866
 MonoBehaviour:
@@ -1016,6 +1016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f9a44a55bbdf3418aa8488f3d1bded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  optionMenu: {fileID: 0}
   PauseMenuUI: {fileID: 774726709}
 --- !u!1 &1995498463
 GameObject:
