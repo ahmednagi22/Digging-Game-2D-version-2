@@ -16,7 +16,7 @@ public class Scene_1 : MonoBehaviour
     private Animator anim;
     private int RATIO_OF_SCORE_TO_HEALTH = 7;
     private int MaximumHealth = 5;
-    public TextMeshProUGUI healthText;
+    
     public TextMeshProUGUI scoreText;
     public bool getDoorKey = false;
     public GameObject imageOfDoorKey;
@@ -27,15 +27,15 @@ public class Scene_1 : MonoBehaviour
     public GameObject imageOfTreasureKey;
     public TextMeshProUGUI numberOfCollectedTreasureKeyText;
     private int gameOverIndex=4;
-    public Joystick joystick;
+    //public Joystick joystick;
      public AudioSource collectedSound;
      private AudioSource dieSound;
-    
+     public Slider HealthBar;
      
      
     void Start()
     {
-        joystick = FindObjectOfType<Joystick>();
+        //joystick = FindObjectOfType<Joystick>();
         mySprite = GetComponent<SpriteRenderer>();
         StartCoroutine(BeginingAnimation());
         dieSound = GetComponent<AudioSource>();
@@ -48,10 +48,9 @@ public class Scene_1 : MonoBehaviour
 
     void Update()
     {
-         
-        double horizonalMove = Math.Round(joystick.Horizontal);
-        double verticalMove = Math.Round(joystick.Vertical);
-        healthText.text = "Health: "+health+"/"+MaximumHealth+"";
+        HealthBar.value = health;
+       // double horizonalMove = Math.Round(joystick.Horizontal);
+        //double verticalMove = Math.Round(joystick.Vertical);
         scoreText.text = "Score:"+Score+"";
         numberOfCollectedTreasureKeyText.text = ""+numberOfCollectedTreasureKey+"";
         if (Score >= RATIO_OF_SCORE_TO_HEALTH && health < MaximumHealth)
@@ -68,25 +67,25 @@ public class Scene_1 : MonoBehaviour
         anim.SetBool("walking",false);
         if(!levelOver&&!PuaseMenu.GameIsPaused){
              
-            if (Input.GetKey(KeyCode.LeftArrow)||horizonalMove==-1)
+            if (Input.GetKey(KeyCode.LeftArrow)/*||horizonalMove==-1*/)
             {
                 
                 anim.SetBool("walking",true);
                 transform.Translate(new Vector3(-speed*Time.fixedDeltaTime,0,0));
                 mySprite.flipX = true;
             }
-            else if (Input.GetKey(KeyCode.RightArrow)||horizonalMove==1)
+            else if (Input.GetKey(KeyCode.RightArrow)/*||horizonalMove==1*/)
             {
                 anim.SetBool("walking",true);
                 transform.Translate(new Vector3(speed*Time.fixedDeltaTime,0,0));
                 mySprite.flipX = false;
             }
-            else if (Input.GetKey(KeyCode.UpArrow)||verticalMove==1)
+            else if (Input.GetKey(KeyCode.UpArrow)/*||verticalMove==1*/)
             {
                 anim.SetBool("walking",true);
                 transform.Translate(new Vector3(0,speed*Time.fixedDeltaTime,0));
             }
-            else if (Input.GetKey(KeyCode.DownArrow)||verticalMove==-1)
+            else if (Input.GetKey(KeyCode.DownArrow)/*||verticalMove==-1*/)
             {
                 anim.SetBool("walking",true);
                 transform.Translate(new Vector3(0,-speed*Time.fixedDeltaTime,0));

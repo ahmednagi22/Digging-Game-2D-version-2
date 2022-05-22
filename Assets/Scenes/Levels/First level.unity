@@ -371,17 +371,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13142145}
   m_CullTransparentMesh: 1
---- !u!114 &13746936 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3996804115447891064, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
-  m_PrefabInstance: {fileID: 1505182458289490426}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &13851910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2411,7 +2400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 59, y: -398}
+  m_AnchoredPosition: {x: 0, y: -249}
   m_SizeDelta: {x: 328.585, y: 110.9207}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &246233805
@@ -4276,16 +4265,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  healthText: {fileID: 1932363594}
-  scoreText: {fileID: 1477018426}
+  scoreText: {fileID: 1932363594}
   getDoorKey: 0
   imageOfDoorKey: {fileID: 1187754204}
   player_image: {fileID: 434085607}
   animOfExitDoor: {fileID: 1825882451}
   imageOfTreasureKey: {fileID: 539163621}
   numberOfCollectedTreasureKeyText: {fileID: 435182675}
-  joystick: {fileID: 13746936}
   collectedSound: {fileID: 651401119}
+  HealthBar: {fileID: 1505182458289490430}
 --- !u!212 &434085607 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 5195676135331911720, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
@@ -13645,7 +13633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 56, y: -78}
+  m_AnchoredPosition: {x: 0, y: 71}
   m_SizeDelta: {x: 328.585, y: 110.9207}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1194109643
@@ -15360,7 +15348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 53.2614, y: 126.3141}
+  m_AnchoredPosition: {x: 0, y: 275.3141}
   m_SizeDelta: {x: 470.1964, y: 134.5226}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1357103049
@@ -16736,17 +16724,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8422186130520531301, guid: 56cdbfdc24bb7d540927ef5a51c27746, type: 3}
   m_PrefabInstance: {fileID: 2039795122}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1477018426 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1505182459228523200, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
-  m_PrefabInstance: {fileID: 1505182458289490426}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1477777952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32986,7 +32963,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 57, y: -237}
+  m_AnchoredPosition: {x: 0, y: -88}
   m_SizeDelta: {x: 280.89, y: 94.8097}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2144001192
@@ -33344,6 +33321,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1505182459679149747, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 464
+      objectReference: {fileID: 0}
+    - target: {fileID: 2663059559120458732, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 356
+      objectReference: {fileID: 0}
     - target: {fileID: 3732694510465911082, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
       propertyPath: m_Name
       value: numberOfCollectedTreasureKey
@@ -33366,6 +33351,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3996804115163744143, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3996804115447891060, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3996804115447891061, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
@@ -33392,6 +33381,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 48c0d4d6bebaa934384b07aa1e2f8184, type: 3}
+    - target: {fileID: 5723442741335193262, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723442741335193262, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 461
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939292526771063598, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 353
+      objectReference: {fileID: 0}
     - target: {fileID: 8334526885899018671, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -33426,6 +33427,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionMenu: {fileID: 374215977}
   PauseMenuUI: {fileID: 1832262056}
+--- !u!114 &1505182458289490430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 365613143949810860, guid: a6a1004c689b5aa45a8e8452aaa6bf32, type: 3}
+  m_PrefabInstance: {fileID: 1505182458289490426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2004313408249569508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33559,7 +33571,7 @@ PrefabInstance:
     - target: {fileID: 1401892027500590707, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
       propertyPath: scoreText
       value: 
-      objectReference: {fileID: 1477018426}
+      objectReference: {fileID: 0}
     - target: {fileID: 1401892027500590707, guid: be6cf17ec844a8d4ab61f1b7b33c1cb1, type: 3}
       propertyPath: getDoorKey
       value: 0
